@@ -9,11 +9,11 @@ describe('Manager', () => {
         expect(managerSmpl.name.length).toBeGreaterThan(2);
     });
 
-    it('Has a numerical number as the ID', () => {
+    it('Has a numerical value as the ID', () => {
         expect(managerSmpl.id).toEqual(expect.any(Number));
     });
 
-    it('Has an email id', () =>{
+    it('Has the correct character in email', () =>{
         expect(managerSmpl.email).toEqual(expect.stringContaining('@'));
     });
 
