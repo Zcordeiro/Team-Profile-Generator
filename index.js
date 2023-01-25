@@ -8,6 +8,7 @@ const generateHtml = require("./src/generatehtml");
 
 let teamArry = [];
 
+// Function that prompts the user for information on team members
 const userPrompts = () => {
   return inquirer
     .prompt([
@@ -96,7 +97,7 @@ const userPrompts = () => {
       }
     });
 };
-
+ // Function that prompts the user to add another member or ends the loop if they choose not to.
 function addTeam() {
   return inquirer
     .prompt([
@@ -111,19 +112,21 @@ function addTeam() {
         userPrompts(teamArry);
       } else {
         writeToFile(
-          "/Users/zeuscordeiro/Documents/personal-test-codes/scrap-paper-codes/class-scrap/class-time-files/index.html",
+          "./dist/index.html",
           teamArry
         );
       }
     });
 }
 
+// Function that writes creates the Html file from the generateHtml in the src folder.
 function writeToFile(fileName, arry) {
   fs.writeFile(fileName, generateHtml(arry), (err) =>
     err ? console.log(err) : console.log("Successfully created HTML!")
   );
 }
 
+// Function that initiates the app and prompts the user for the manager information.
 function initManager() {
   return inquirer
     .prompt([
